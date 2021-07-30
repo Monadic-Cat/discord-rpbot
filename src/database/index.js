@@ -2,17 +2,24 @@
 'use strict';
 
 import { join as pathJoin } from 'path';
-import sqlite from 'sqlite';
+import { open, verbose } from 'sqlite';
+import sqlite3 from 'sqlite3';
 import bot from '../bot';
 import config from '../config';
 import Character from './character';
 
-export const db = sqlite;
+export var db;
 export default db;
 
 export async function init() {
 	bot.logger.info('Initializing database...', { file: config.database, verbose: config.databaseVerbose });
-	await db.open(config.database, { verbose: config.databaseVerbose });
+	if(config.databaseVerbose) {
+		verbose();
+	}
+	db = await open({
+		filename: config.database,
+		driver: sqlite3.Database
+	});
 	await db.migrate({ migrationsPath: pathJoin(__dirname, '../../migrations') });
 	await Promise.all([
 		Character.convertStorage()
