@@ -26,10 +26,10 @@
 		"rpbot-sharder": "lib/sharder.js"
 	},
 	"dependencies": {
-		"discord-graf": "^0.15.0",
 		"common-tags": "^1.4.0",
 		"dice-expression-evaluator": "^0.1.0",
-		"discord.js": "^11.0.0",
+		"discord-graf": "Monadic-Cat/discord-graf#updates",
+		"discord.js": "^12.5.3",
 		"sqlite": "^4.0.0",
 		"sqlite3": "^5.0.2",
 		"universal-analytics": "^0.4.0",
