@@ -2,7 +2,7 @@
 'use strict';
 
 import bot from '../bot';
-import db from './';
+import { db } from './';
 
 const sqlFindByGuild = 'SELECT CAST(server_id AS TEXT) AS server_id, name, info, CAST(user_id AS TEXT) AS user_id FROM characters WHERE server_id = ?';
 const sqlFindByGuildAndName = 'SELECT CAST(server_id AS TEXT) AS server_id, name, info, CAST(user_id AS TEXT) AS user_id FROM characters WHERE server_id = ? AND name = ?';
